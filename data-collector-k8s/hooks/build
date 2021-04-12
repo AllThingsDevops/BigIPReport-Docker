@@ -1,0 +1,3 @@
+#!/bin/bash
+[[ "${DOCKER_TAG}" == "latest" ]] && GIT_REF=master || GIT_REF=$DOCKER_TAG
+docker build --build-arg GIT_REF=$GIT_REF -f $DOCKERFILE_PATH -t $IMAGE_NAME .

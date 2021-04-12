@@ -1,0 +1,8 @@
+FROM mcr.microsoft.com/powershell:7.1.0-ubuntu-focal
+ARG GIT_REF
+RUN apt update && apt install -y git
+RUN mkdir -p /opt/underlay
+WORKDIR /opt/bigipreport
+RUN git clone https://github.com/net-utilities/BigIPReport /opt/bigipreport
+RUN git checkout $GIT_REF
+ENTRYPOINT ["pwsh", "-c", "/opt/bigipreport/bigipreport.ps1", "/opt/bigipreport/config/bigipreportconfig.xml"]
