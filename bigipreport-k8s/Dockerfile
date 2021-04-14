@@ -4,4 +4,5 @@ RUN mkdir -p /opt/underlay
 WORKDIR /opt/bigipreport
 RUN git clone https://github.com/net-utilities/BigIPReport /opt/bigipreport
 RUN git checkout $DOCKER_TAG
+COPY entrypoint.ps1 .
 ENTRYPOINT ["pwsh", "-c", "/opt/bigipreport/bigipreport.ps1", "/opt/bigipreport/config/bigipreportconfig.xml"]
