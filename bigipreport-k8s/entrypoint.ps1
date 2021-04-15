@@ -4,7 +4,7 @@ if (Test-path "/opt/bigipreport/config/bigipreportconfig.xml") {
     $F5_USERNAME = $env:F5_USERNAME
     $F5_PASSWORD = $env:F5_PASSWORD
     $F5_SUPPORT_USERNAME = $env:F5_SUPPORT_USERNAME
-    $F5_SUPPORT_PASSWORD = $env:F5_SUPPORT_USERNAME
+    $F5_SUPPORT_PASSWORD = $env:F5_SUPPORT_PASSWORD
 
     if ($null -notin @($F5_USERNAME, $F5_PASSWORD, $F5_SUPPORT_USERNAME, $F5_SUPPORT_PASSWORD)){
         Write-Host "Environment variables set, replacing credentials in the configmap"
