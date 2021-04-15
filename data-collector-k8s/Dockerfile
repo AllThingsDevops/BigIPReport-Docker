@@ -6,4 +6,4 @@ RUN git clone https://github.com/net-utilities/BigIPReport /opt/bigipreport
 RUN git checkout $DOCKER_TAG
 RUN chmod 666 /opt/bigipreport/bigipreportconfig.xml
 COPY entrypoint.ps1 .
-ENTRYPOINT ["pwsh", "-c", "/opt/bigipreport/bigipreport.ps1", "/opt/bigipreport/config/bigipreportconfig.xml"]
+ENTRYPOINT ["pwsh", "-c", "/opt/bigipreport/entrypoint.ps1"]
