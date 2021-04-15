@@ -12,12 +12,13 @@ if (Test-path "/opt/bigipreport/config/bigipreportconfig.xml") {
                 -replace '{{F5_PASSWORD}}', $F5_PASSWORD `
                 -replace '{{F5_SUPPORT_USERNAME}}', $F5_SUPPORT_USERNAME `
                 -replace '{{F5_SUPPORT_PASSWORD}}', $F5_SUPPORT_PASSWORD `
-                | Out-File /opt/bigipreport/config/bigipreportconfig.xml
+                | Out-File /opt/bigipreport/bigipreportconfig.xml
+        & pwsh -c /opt/bigipreport/bigipreport.ps1
     } Else {
         Write-Host "At least one environment variable missing, using config map as is"
+        & pwsh -c /opt/bigipreport/bigipreport.ps1 /opt/bigipreport/config/bigipreportconfig.xml
     }
 } else {
     Write-Error "Config file was not found in /opt/bigipreport/config/bigipreportconfig.xml, have you mounted the config map?"
 }
 
-& pwsh -c /opt/bigipreport/bigipreport.ps1 /opt/bigipreport/config/bigipreportconfig.xml
