@@ -9,3 +9,7 @@ Pre-configured nginx to serve report
 
 # data-collector-k8s
 Container containing all you need to generate the report in Kubernetes. Article to come.
+
+## Important
+Stable releases will be announced at [Devcentral](https://devcentral.f5.com/s/articles/bigip-report?page=1).
+Do not use tags that's not announced there unless you're willing to be a beta tester.
